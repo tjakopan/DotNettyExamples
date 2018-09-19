@@ -5,10 +5,9 @@ using DotNetty.Transport.Channels;
 using DotNetty.Transport.Channels.Sockets;
 using Examples.Logging;
 
-namespace Uptime.Server {
+namespace Telnet.Server {
   internal static class Program {
-    private const int Port = 8080;
-    private static readonly UptimeServerHandler Handler = new UptimeServerHandler();
+    private const int Port = 8023;
 
     private static async Task RunServerAsync() {
       LoggingHelper.SetNLogLogger();
@@ -20,14 +19,13 @@ namespace Uptime.Server {
         b.Group(bossGroup, workerGroup)
           .Channel<TcpServerSocketChannel>()
           .Handler(new LoggingHandler(LogLevel.INFO))
-          .ChildHandler(
-            new ActionChannelInitializer<ISocketChannel>(channel => channel.Pipeline.AddLast(Handler)));
+          .ChildHandler(new TelnetServerInitializer());
 
-        IChannel ch = await b.BindAsync(Port);
+        IChannel channel = await b.BindAsync(Port);
 
-        await ch.CloseCompletion;
+        await channel.CloseCompletion;
       } finally {
-        Task.WaitAll(workerGroup.ShutdownGracefullyAsync(), bossGroup.ShutdownGracefullyAsync());
+        Task.WaitAll(bossGroup.ShutdownGracefullyAsync(), workerGroup.ShutdownGracefullyAsync());
       }
     }
 
