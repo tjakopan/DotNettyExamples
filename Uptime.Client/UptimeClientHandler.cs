@@ -60,5 +60,7 @@ namespace Uptime.Client {
         ? $"[SERVER IS DOWN] {msg}"
         : $"[UPTIME: {TimeSpan.FromTicks(DateTime.Now.Ticks - StartTime).TotalSeconds} s] {msg}");
     }
+
+    public override bool IsSharable => true;
   }
 }

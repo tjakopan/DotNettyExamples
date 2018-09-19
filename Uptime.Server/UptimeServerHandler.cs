@@ -14,5 +14,7 @@ namespace Uptime.Server {
       Logger.Error(exception, "Exception while handling message");
       context.CloseAsync();
     }
+
+    public override bool IsSharable => true;
   }
 }

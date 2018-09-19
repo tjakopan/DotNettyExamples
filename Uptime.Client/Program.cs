@@ -5,6 +5,7 @@ using DotNetty.Handlers.Timeout;
 using DotNetty.Transport.Bootstrapping;
 using DotNetty.Transport.Channels;
 using DotNetty.Transport.Channels.Sockets;
+using Examples.Logging;
 using NLog;
 
 namespace Uptime.Client {
@@ -20,6 +21,8 @@ namespace Uptime.Client {
     private static readonly Bootstrap Bs = new Bootstrap();
 
     private static async Task RunClientAsync() {
+      LoggingHelper.SetNLogLogger();
+
       IEventLoopGroup group = new MultithreadEventLoopGroup();
       try {
         Bs.Group(group)

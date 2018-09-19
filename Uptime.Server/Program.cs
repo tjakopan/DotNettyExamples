@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using DotNetty.Handlers.Logging;
 using DotNetty.Transport.Bootstrapping;
 using DotNetty.Transport.Channels;
 using DotNetty.Transport.Channels.Sockets;
-using Examples.Common;
-using NLog;
+using Examples.Logging;
+using LoggingHandler = DotNetty.Handlers.Logging.LoggingHandler;
 
 namespace Uptime.Server {
   internal static class Program {
@@ -12,13 +13,15 @@ namespace Uptime.Server {
     private static readonly UptimeServerHandler Handler = new UptimeServerHandler();
 
     private static async Task RunServerAsync() {
+      LoggingHelper.SetNLogLogger();
+
       IEventLoopGroup bossGroup = new MultithreadEventLoopGroup(1);
       IEventLoopGroup workerGroup = new MultithreadEventLoopGroup();
       try {
         ServerBootstrap b = new ServerBootstrap();
         b.Group(bossGroup, workerGroup)
           .Channel<TcpServerSocketChannel>()
-          .Handler(new LoggingHandler(LogLevel.Info))
+          .Handler(new LoggingHandler(LogLevel.INFO))
           .ChildHandler(
             new ActionChannelInitializer<ISocketChannel>(channel => channel.Pipeline.AddLast(Handler)));
 
