@@ -1,0 +1,32 @@
+syntax = "proto3";
+package WorldClock.Common;
+
+option optimize_for = SPEED;
+
+message TimeZoneIds {
+  repeated string timeZoneIds = 1;
+}
+
+enum DayOfWeek {
+  SUNDAY = 0;
+  MONDAY = 1;
+  TUESDAY = 2;
+  WEDNESDAY = 3;
+  THURSDAY = 4;
+  FRIDAY = 5;
+  SATURDAY = 6;
+}
+
+message LocalTime {
+  uint32 year = 1;
+  uint32 month = 2;
+  uint32 dayOfMonth = 4;
+  DayOfWeek dayOfWeek = 5;
+  uint32 hour = 6;
+  uint32 minute = 7;
+  uint32 second = 8;
+}
+
+message LocalTimes {
+  repeated LocalTime localTimes = 1;
+}
