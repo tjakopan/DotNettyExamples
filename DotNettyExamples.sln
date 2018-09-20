@@ -36,6 +36,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telnet.Server", "Telnet.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telnet.Client", "Telnet.Client\Telnet.Client.csproj", "{A2BA5820-C4F9-4DD4-8B6B-8A5ECF632152}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotm.Server", "Qotm.Server\Qotm.Server.csproj", "{770CD8B5-6594-4AC3-99A5-BFA912A2DC32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qotm.Client", "Qotm.Client\Qotm.Client.csproj", "{F15AA0CD-FB8E-4F0A-B97E-19C151FBC2F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,5 +106,13 @@ Global
 		{A2BA5820-C4F9-4DD4-8B6B-8A5ECF632152}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2BA5820-C4F9-4DD4-8B6B-8A5ECF632152}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2BA5820-C4F9-4DD4-8B6B-8A5ECF632152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{770CD8B5-6594-4AC3-99A5-BFA912A2DC32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770CD8B5-6594-4AC3-99A5-BFA912A2DC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770CD8B5-6594-4AC3-99A5-BFA912A2DC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770CD8B5-6594-4AC3-99A5-BFA912A2DC32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15AA0CD-FB8E-4F0A-B97E-19C151FBC2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15AA0CD-FB8E-4F0A-B97E-19C151FBC2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15AA0CD-FB8E-4F0A-B97E-19C151FBC2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15AA0CD-FB8E-4F0A-B97E-19C151FBC2F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

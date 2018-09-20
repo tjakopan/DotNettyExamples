@@ -37,7 +37,7 @@ namespace Telnet.Client {
 
           // If user typed the 'bye' command, wait until the server closes the connection.
           if ("bye".Equals(line.ToLower())) {
-            await ch.CloseAsync();
+            await ch.CloseCompletion;
             break;
           }
         }
