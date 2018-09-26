@@ -18,7 +18,7 @@ namespace WorldClock.Server {
         ServerBootstrap b = new ServerBootstrap();
         b.Group(bossGroup, workerGroup)
           .Channel<TcpServerSocketChannel>()
-          .Handler(new LoggingHandler(LogLevel.INFO))
+          .Handler(new LoggingHandler(LogLevel.TRACE))
           .ChildHandler(new WorldClockServerInitializer());
 
         IChannel channel = await b.BindAsync(Port);
